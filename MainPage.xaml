@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:CustomControls="clr-namespace:MauiApp01.CustomControls"
+             xmlns:ViewModel ="clr-namespace:MauiApp01.ViewModels"
+             x:Class="MauiApp01.MainPage">
+    
+    <ContentPage.BindingContext>
+        <ViewModel:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid VerticalOptions="Fill" Background="{Binding MainBg}" >
+        <Frame VerticalOptions="Center" Margin="10">
+            <VerticalStackLayout>
+                <Label FontAttributes="Bold" FontSize="Title" HorizontalOptions="Center" Text="Color picker" Margin="0, 0, 0, 15"/>
+                <CustomControls:SlideWithLabel x:Name="RedSlider" LabelText="Red value :" ValueOfTheSlider="{Binding Red, Mode=TwoWay}"  Margin="0, 0, 0, 15"/>
+                <CustomControls:SlideWithLabel x:Name="BlueSlider" LabelText="Blue value :" ValueOfTheSlider="{Binding Blue, Mode=TwoWay}" Margin="0, 0, 0, 15"/>
+                <CustomControls:SlideWithLabel x:Name="GreenSlider" LabelText="Green value :" ValueOfTheSlider="{Binding Green, Mode=TwoWay}" Margin="0, 0, 0, 15"/>
+
+                <Frame HorizontalOptions="Center">
+                    <HorizontalStackLayout>
+                        <Label>HexCode :</Label>
+                        <Label Text="{Binding HexCode}"/>
+                    </HorizontalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>
